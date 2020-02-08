@@ -16,7 +16,7 @@ const qfingerprint = {
 
 			// Draw to canvas
 
-			ctx.clearColor(0.9, 0.6, 0.7, 0.6)
+			ctx.clearColor(0.8, 0.6, 0.4, 0.8)
 			ctx.clear(ctx.COLOR_BUFFER_BIT)
 
 			// Encode text to UInt8Array with TextEncoder
