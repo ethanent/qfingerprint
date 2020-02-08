@@ -9,30 +9,13 @@ const qfingerprint = {
 			c.width = 200
 			c.height = 200
 
-			const ctx = c.getContext("2d")
+			const ctx = c.getContext("webgl")
+
+			ctx.viewport(0, 0, 200, 100)
 
 			// Draw to canvas
 
-			const renderText = "Metrafin Group"
-
-			ctx.textBaseline = "top"
-
-			ctx.font = "14px Arial"
-
-			ctx.textBaseline = "alphabetic"
-			ctx.fillStyle = "#F60"
-
-			ctx.fillRect(50, 50, 50, 50)
-
-			ctx.fillStyle = "#069"
-
-			ctx.fillText(renderText, 50, 50)
-
-			ctx.fillStyle = "rgba(96, 234, 0, 0.7)"
-
-			ctx.fillText(renderText, 55, 55)
-
-			const raw = c.toDataURL()
+			ctx.clearColor(0.9, 0.6, 0.7, 0.6)
 
 			// Encode text to UInt8Array with TextEncoder
 
