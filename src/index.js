@@ -1,27 +1,30 @@
 const qfingerprint = {
 	"calculate": () => {
 		return new Promise((resolve, reject) => {
-			// Create virtual canvas
+			// Create canvas
 
 			const c = document.createElement("canvas")
 
-			c.style.display = "none"
 			c.width = 200
 			c.height = 200
 
+			// Initialize WebGL
+
 			const ctx = c.getContext("webgl")
 
-			ctx.viewport(0, 0, 200, 100)
+			ctx.viewport(0, 0, ctx.drawingBufferWidth, ctx.drawingBufferHeight)
 
 			// Draw to canvas
 
 			ctx.clearColor(0.9, 0.6, 0.7, 0.6)
+			ctx.clear(ctx.COLOR_BUFFER_BIT)
 
 			// Encode text to UInt8Array with TextEncoder
 
 			const te = new TextEncoder()
 
-			const encText = te.encode(c.toDataURL())
+			// Encode unique portion of image
+			const encText = te.encode(c.toDataURL().substring(0, 69))
 
 			// Digest encoded text
 
